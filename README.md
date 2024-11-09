@@ -7,4 +7,8 @@ CodeStyle: [Google C++ Style Guide](https://google.github.io/styleguide/cppguide
 
 1. expose unified api
 2. provided some option: compressed, Lazy Format
-3.  
+3. 
+
+SPSC
+1. Reader thread should know the logger in some way
+2. Logger should take care of sinks
