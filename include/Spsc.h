@@ -9,4 +9,7 @@ namespace LeslieLog {
     };
     template<typename T>
     using QueuePtr = std::unique_ptr<Queue<T>>;
+
+    template<typename T>
+    using QueueRawPtr = Queue<T>*;
 }

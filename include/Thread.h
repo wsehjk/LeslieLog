@@ -20,6 +20,9 @@ namespace LeslieLog {
         Thread(Thread&& ) = delete;
         Thread& operator = (const Thread& ) = delete;
         Thread& operator = (Thread&& ) = delete;
+        ~Thread() {
+            shutdown();
+        }
 
         THREADSTATE GetState() const {
             return state_;
@@ -33,6 +36,12 @@ namespace LeslieLog {
 
         }
         
+        void shutdown() {
+            if (worker_.joinable()) {
+                worker_.join(); 
+            }
+            state_ = THREADSTATE::IDLE;
+        }
     };
     using ThreadPtr = std::unique_ptr<Thread>;
     using ThreadRawPtr = Thread*;
